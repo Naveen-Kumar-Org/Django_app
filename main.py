@@ -11,9 +11,18 @@ settings.configure(
     ROOT_URLCONF=__name__,
 )
 
-# 2. Define a View
+# # 2. Define a View
+# def home(request):
+#     return HttpResponse("<h1>Hello from a Single-File Django App!</h1>")
+
 def home(request):
-    return HttpResponse("<h1>Hello from a Single-File Django App!</h1>")
+    # This code to test if AI detects the bug in PR
+    val = request.GET.get("value", 0)
+
+    # and dividing by a value that might be zero.
+    result = 100 / int(val) 
+
+    return HttpResponse(f"<h1>Calculated: {result}</h1>")
 
 # 3. Define URL Patterns
 urlpatterns = [
